@@ -242,10 +242,41 @@ a {
     z-index: 997;
     top: 1.8rem;
     left: 1.8rem;
-    color: var(--primaryColor);
+    color: #FFD700;
+    /* Pure gold color */
     font-size: 2rem;
     animation: bounce 2s ease-in-out infinite;
     cursor: pointer;
+    text-shadow:
+        0 1px 0 #D4AF37,
+        /* First shadow layer (darker gold) */
+        0 2px 5px rgba(0, 0, 0, 0.3);
+    /* Second shadow layer (soft black) */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Add hover effect for extra interactivity */
+.nav-btn:hover {
+    color: #FFEC8B;
+    /* Lighter gold on hover */
+    text-shadow:
+        0 1px 0 #FFD700,
+        0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Keep your existing bounce animation */
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .nav-close {
@@ -338,6 +369,7 @@ a {
     right: 35px;
     top: 35px;
     cursor: pointer;
+    color: red;
     transition: all 0.5s ease-out;
 }
 
@@ -345,9 +377,35 @@ a {
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #fff;
     transition: all 0.5s ease-out;
 }
+
+.menu-btn .btn-line {
+    background: linear-gradient(90deg,
+            #FFD700 0%,
+            #FFEC8B 25%,
+            #FFD700 50%,
+            #FFEC8B 75%,
+            #FFD700 100%);
+    background-size: 200% 100%;
+    animation: goldShine 3s linear infinite;
+    height: 3px;
+    /* Adjust thickness as needed */
+    margin: 0 0 5px 0;
+    border-radius: 2px;
+    /* Optional: for rounded edges */
+}
+
+@keyframes goldShine {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
 
 .menu-btn.close {
     transform: rotate(180deg);
