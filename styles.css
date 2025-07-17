@@ -637,3 +637,11 @@ a {
         font-size: 1.3rem;
     }
 }
+
+.banner-title i {
+    margin-right: 10px;
+    color: #5383ed;
+    /* Java blue color */
+    font-size: 0.9em;
+    /* Slightly smaller than text */
+}
