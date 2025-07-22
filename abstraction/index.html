@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abstration in java</title>
+  <title>Type casting</title>
   <!-- styles -->
   <link rel="stylesheet" href="../../styles.css" />
   <!-- font awesome -->
@@ -171,16 +171,123 @@
   <!-- notes body start -->
   <main class="main">
     <section class="class-notes">
-      <article class="topic">
-        <h3 class="topic-title" id="introduction"><i class="fas fa-book-open" style="color: #5383ed;"></i>
-          Introduction</h3>
-        <p class="topic-content">
-          Abstraction is the process of hiding the implementation
-          details and showing only the functionality to the user.
-          This helps to focus on what an object does rather than
-          how it does it.
-        </p>
-      </article>
+      <<article class="topic">
+  <h3 class="topic-title" id="introduction">
+    <i class="fas fa-book-open" style="color: #5383ed;"></i> Type Conversion in Java
+  </h3>
+  <p class="topic-content">
+    Type conversion (also known as type casting) in Java is the process of converting a value from one data type to another.
+    It can be categorized into two types: 
+    <b>Widening (Implicit)</b> and <b>Narrowing (Explicit)</b> conversions.
+  </p>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Types of Type Conversion</h3>
+  <ol class="topic-list topic-content">
+    <li><b>Widening Type Conversion (Implicit):</b> Converting a smaller data type to a larger one. It is safe and done automatically by Java.</li>
+    <li><b>Narrowing Type Conversion (Explicit):</b> Converting a larger data type into a smaller one. It may result in data loss and must be done manually by the programmer using casting.</li>
+  </ol>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Widening (Implicit) Conversion</h3>
+  <p class="topic-content">
+    Java performs this type of conversion automatically. No loss of information occurs.
+  </p>
+  <pre>
+byte → short → int → long → float → double
+  </pre>
+  <pre>
+public class WideningExample {
+    public static void main(String[] args) {
+        int i = 100;
+        long l = i; // int to long
+        float f = l; // long to float
+        System.out.println(i);
+        System.out.println(l);
+        System.out.println(f);
+    }
+}
+  </pre>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Narrowing (Explicit) Conversion</h3>
+  <p class="topic-content">
+    Requires explicit casting by the programmer. It may cause data loss or truncation.
+  </p>
+  <pre>
+double → float → long → int → short → byte
+  </pre>
+  <pre>
+public class NarrowingExample {
+    public static void main(String[] args) {
+        double d = 123.456;
+        long l = (long) d; // Explicit casting
+        int i = (int) l;
+        System.out.println(d);
+        System.out.println(l);
+        System.out.println(i);
+    }
+}
+  </pre>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Type Casting with Objects (Upcasting & Downcasting)</h3>
+  <p class="topic-content">
+    Type conversion can also happen with objects in the inheritance hierarchy.
+  </p>
+  <ul class="topic-content topic-list">
+    <li><b>Upcasting:</b> Automatically converting subclass type to superclass type.</li>
+    <li><b>Downcasting:</b> Manually converting superclass type back to subclass. Requires explicit cast and should be done with care.</li>
+  </ul>
+  <pre>
+class Animal {}
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Barking...");
+    }
+}
+
+public class ObjectCasting {
+    public static void main(String[] args) {
+        Animal a = new Dog(); // Upcasting
+        Dog d = (Dog) a;      // Downcasting
+        d.bark();
+    }
+}
+  </pre>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Invalid Type Conversion</h3>
+  <p class="topic-content">
+    Java does not allow type conversion between incompatible types (e.g., converting `int[]` to `byte[]` directly).
+  </p>
+  <pre>
+public class InvalidConversion {
+    public static void main(String[] args) {
+        int[] a = new int[5];
+        byte[] b = new byte[5];
+        // a = b; // ❌ Compile-time error
+    }
+}
+  </pre>
+</article>
+
+<article class="topic">
+  <h3 class="topic-title">Common Interview Questions</h3>
+  <ul class="topic-content topic-list">
+    <li>What is the difference between widening and narrowing conversion?</li>
+    <li>Is data lost during type casting?</li>
+    <li>What happens when you downcast an object improperly?</li>
+    <li>Can arrays be type casted?</li>
+    <li>Why is explicit casting needed for narrowing conversions?</li>
+  </ul>
+</article>
+
       <article class="topic">
         <h3 class="topic-title">Object Class</h3>
         <p class="topic-content">
