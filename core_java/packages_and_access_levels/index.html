@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>abstration in java</title>
+  <title>Packages and Access Levels in Java</title>
   <!-- styles -->
   <link rel="stylesheet" href="../../styles.css" />
   <!-- font awesome -->
@@ -158,7 +158,7 @@
   <!-- header -->
   <header class="header">
     <div class="banner">
-      <h1 class="banner-title"><i class="fas fa-layer-group"></i>Abstraction in java notes <i
+      <h1 class="banner-title"><i class="fas fa-layer-group"></i>Packages and Access Levels in Java  <i
           class="fas fa-layer-group"></i></h1>
     </div>
   </header>
@@ -175,106 +175,125 @@
         <h3 class="topic-title" id="introduction"><i class="fas fa-book-open" style="color: #5383ed;"></i>
           Introduction</h3>
         <p class="topic-content">
-          Abstraction is the process of hiding the implementation
-          details and showing only the functionality to the user.
-          This helps to focus on what an object does rather than
-          how it does it.
+        Packages in Java are like folders on your computer that help you organize your files. They do the same thing for Java classes - they keep related classes together and prevent naming conflicts.
         </p>
       </article>
       <article class="topic">
-        <h3 class="topic-title">Object Class</h3>
+        <h3 class="topic-title">Understanding Packages</h3>
         <p class="topic-content">
-          The most common general methods applicable to any Java object are
-          defined in the Object class. The Object class serves as the parent
-          class of any Java class, whether directly or indirectly. Therefore,
-          all the methods defined in the Object class are automatically
-          available to any Java class. The Object class defines the following
-          11 methods:
+        
+<b>What are Packages?:</b><br>
+   In programming, folders are called packages or
+   directories.<br><br>
+<b>Using the Command Prompt:</b><br>
+    Under the src (source) folder, you can create numerous
+    packages and sub-packages effortlessly.<br><br>
+<b>Why Use Packages?:</b><br>
+    They help separate files by category, making it easy to
+    manage and use them as needed by the main or related
+    classes within a project.
           <br />
         </p>
         <br />
         <ol class="topic-list">
           <li>
-            <b> clone()</b><br />
+            <b> Creating Packages</b><br />
             Creates a new object of the same class as this object.
           </li>
           <li>
-            <b> equals(Object)</b><br />
-            Compares two Objects for equality.
+            <b> In IDEs:</b><br />
+            Creating packages and sub-packages is
+            straightforward in Integrated Development
+            Environments like Eclipse and IntelliJ.
           </li>
           <li>
-            <b> finalize()</b><br />
-            Called by the garbage collector on an object when garbage
-            collection determines that there are no more references to the
-            object.
+            <b> Keyword Alert:</b><br />
+            The term package is a reserved keyword in Java.
           </li>
           <li>
-            <b>getClass()</b><br />
-            Returns the runtime class of an object.
+            <b>How to use packages?</b><br />
+            <b>Put package packagename;</b> at top of Java file<br>
+              Example: package com.mycompany.game;
           </li>
           <li>
-            <b>hashCode()</b><br />
-            Returns a hash code value for the object.
+            <b>Types of packages:</b><br />
+           Built-in: Java provides these (like java.util)<br>
+           User-defined: You create these for your programs
           </li>
           <li>
-            <b>notify()</b><br />
-            Wakes up a single thread that is waiting on this object's monitor.
-          </li>
+            <b>Naming convention:</b><br />
+            Usually starts with your domain backwards<br>
+             Example: com.google.maps
           <li>
-            <b>notifyAll()</b><br />
-            Wakes up all threads that are waiting on this object's monitor.
+            <b>Using other packages:</b><br />
+            Use import packagename.ClassName; to use classes from other packages
           </li>
-          <li>
-            <b>toString()</b><br />
-            Returns a string representation of the object.
+          <b>Navigating Packages</b>
+           <li>
+            <b>Current Directory:</b><br />
+            The . symbol refers to the current directory or package.
           </li>
-          <li>
-            <b>wait()</b><br />
-            Waits to be notified by another thread of a change in this object.
+           <li>
+            <b>Start Naming:</b><br />
+            Begin naming packages from the src folder.
           </li>
-          <li>
-            <b>wait(long)</b><br />
-            Waits to be notified by another thread of a change in this object.
+           <li>
+            <b>Compilation Command:</b><br />
+            javac -d ../classes com/rst/C.java
           </li>
+           <li>
+            <b>Execution Command:</b><br />
+            java -cp ../classes com.rst.C
+          </li>
+          <b>Package Structure</b>
           <li>
-            <b> wait(long, int)</b><br />
-            Waits to be notified by another thread of a change in this object.
+           <b>Mirroring Structure:</b><br />
+            The package declaration ensures that the structure
+            in the src folder is mirrored in the classes folder.
           </li>
         </ol>
       </article>
       <article class="topic">
-        <h3 class="topic-title" id="tostring">toString() Method</h3>
-        <p class="topic-content">
-          To return String representation of an object.
-        </p>
-        <pre>
-  public String toString()
-  {
-      return getClass.getName() + '@' + Integer.toHexString(HashCode);
-  }
+        <h3 class="topic-title" id="tostring">Example of a simple package:</h3>
+         <h6 class="topic-title" id="tostring">Here's a simple file structure for the Java package example:</h6>
+         <pre>
+project-root/
+│
+├── src/
+│   ├── animals/
+│   │   └── Dog.java
+│   │
+│   └── Main.java
+│
+└── bin/ (automatically created when compiled)
+         </pre>
+<p class="topic-content">package example:</p>
+<pre>
+package animals;
+
+public class Dog 
+{
+    public void bark() 
+    {
+        System.out.println("Woof!");
+    }
+}
         </pre>
         <br />
+        <p class="topic-content">
+        Then to use it from another file:
+         </p>
         <pre>
-  class Student
-  {
-        String name;	
-        int rollno;
-	
-        Student(String name, int rollno)
-        {
-            this.name = name;
-            this.rollno = rollno;
-        }
+import animals.Dog;
 
-        public static void main(String arg[])
-        {
-            Student s1 = new Student("vijay", 101);
-            Student s2 = new Student("yash", 102);
-            System.out.println(s1); // Student@10b62c9
-            System.out.println(s2); // Student@82ba41
-        }
-  }
-          </pre>
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        Dog myDog = new Dog();
+        myDog.bark();
+    }
+}         </pre>
         <p class="topic-content">
           When ever we are passing object reference as argument to s.o.p()
           internally JVM will call toString() on that object. If we are not
